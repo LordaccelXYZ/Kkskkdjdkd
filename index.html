@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>*{box-sizing:border-box}body{margin:0}[hidden]{display:none!important}</style>
+<title>Bunty Knows</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Creepster&family=Special+Elite&family=IBM+Plex+Mono:wght@400;600&family=Tiro+Devanagari+Sanskrit:ital@0;1&family=Rozha+One&family=Noto+Sans+Brahmi&display=swap">
+<style>
+/* Layout: one haunted column — a dead hostel register. Single dark look by choice. */
+:root{
+  color-scheme: dark;
+  --void:#0b0908;
+  --ash:#1a1513;
+  --bone:#d9cfc1;
+  --dim:#857870;
+  --blood:#9e1b1b;
+  --ember:#e0442f;
+  --pale:#9fb4c2;
+  --display:"Creepster","Chiller",fantasy;
+  --body:"Special Elite","Courier New",monospace;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --deva:"Tiro Devanagari Sanskrit","Noto Serif Devanagari","Mangal",serif;
+  --brahmi:"Noto Sans Brahmi",serif;
+  --devadisplay:"Rozha One","Tiro Devanagari Sanskrit","Mangal",serif;
+}
+html,body{min-height:100%}
+body{
+  background:var(--void);color:var(--bone);font-family:var(--body);font-size:16px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-block:0;overflow-x:hidden;position:relative;
+}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:5;
+  background:radial-gradient(ellipse at center,transparent 40%,rgba(0,0,0,.85) 100%)}
+#grain{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:4;opacity:.09}
+main{max-width:640px;margin:0 auto;padding-block:48px 64px;display:flex;flex-direction:column;gap:32px;position:relative;z-index:6}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+.eyebrow .hi{font-family:var(--deva);letter-spacing:.05em;text-transform:none}
+.head{display:flex;flex-direction:column;gap:6px}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(56px,16vw,112px);line-height:.9;margin:0;color:var(--blood);
+  text-shadow:0 0 18px rgba(158,27,27,.55);text-wrap:balance;animation:flicker 6s infinite}
+h1 span{color:var(--bone);text-shadow:none}
+.hindi-title{font-family:var(--devadisplay);font-size:clamp(26px,7vw,40px);color:var(--bone);margin:0;opacity:.85}
+@keyframes flicker{0%,18%,22%,60%,64%,100%{opacity:1}20%,62%{opacity:.35}21%{opacity:.8}}
+
+.shloka{margin:0;padding:18px 0 18px 18px;border-left:2px solid var(--blood);display:flex;flex-direction:column;gap:8px}
+.shloka p{margin:0;font-family:var(--deva);font-size:clamp(18px,4.6vw,22px);line-height:1.7;color:var(--bone)}
+.shloka cite{font-family:var(--mono);font-style:normal;font-size:11px;letter-spacing:.12em;color:var(--dim);text-transform:uppercase}
+.shloka .gloss{font-family:var(--body);font-size:14px;color:var(--dim)}
+
+.glyphs{margin:0;font-family:var(--brahmi);font-size:clamp(22px,6vw,30px);letter-spacing:.25em;color:var(--blood);opacity:.8}
+.glyphs.small{font-size:16px;color:var(--dim)}
+.lore{color:var(--dim);max-width:60ch;margin:0;font-family:var(--deva);font-size:18px;line-height:1.8}
+.lore b{color:var(--bone);font-weight:400}
+
+.clock{display:flex;flex-direction:column;gap:10px}
+.clock .lbl{font-family:var(--deva);font-size:17px;color:var(--bone)}
+.clock .lbl small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--dim);text-transform:uppercase}
+.units{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
+.u{background:var(--ash);border:1px solid #2e2522;padding:10px 4px 8px;display:flex;flex-direction:column;align-items:center;gap:2px;min-width:0}
+.u b{font-family:var(--mono);font-weight:600;font-size:clamp(18px,5.2vw,28px);color:var(--ember);font-variant-numeric:tabular-nums;line-height:1.1}
+.u span{font-family:var(--brahmi);font-size:13px;color:var(--dim)}
+@media (max-width:420px){.units{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+.ask{display:flex;flex-direction:column;gap:12px}
+.ask label{font-family:var(--deva);font-size:19px;color:var(--bone)}
+.ask label small{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-left:8px}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+#room{flex:1 1 160px;min-width:0;background:var(--ash);border:1px solid #3a2e2a;color:var(--bone);
+  font-family:var(--mono);font-size:28px;padding:10px 14px;letter-spacing:.15em;border-radius:2px}
+#room:focus{outline:2px solid var(--ember);outline-offset:2px}
+button{background:var(--blood);color:var(--bone);border:0;font-family:var(--deva);font-size:19px;padding:12px 22px;cursor:pointer;border-radius:2px}
+button:hover{background:var(--ember)}
+button:focus-visible{outline:2px solid var(--bone);outline-offset:2px}
+
+#answer{min-height:180px;border-top:1px dashed #3a2e2a;padding-top:24px;display:flex;flex-direction:column;gap:14px}
+.whisper{color:var(--dim);font-style:italic;margin:0;font-family:var(--deva);font-size:18px}
+.names{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.names li{font-family:var(--display);font-size:clamp(30px,8vw,44px);color:var(--ember);letter-spacing:.03em;
+  opacity:0;transform:translateY(6px);animation:rise .9s forwards;text-shadow:0 0 12px rgba(224,68,47,.4)}
+.names li.target{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.stamp{font-family:var(--mono);font-weight:600;font-size:14px;letter-spacing:.3em;color:var(--blood);
+  border:2px solid var(--blood);padding:2px 8px;transform:rotate(-6deg);text-shadow:none;display:inline-block}
+.sammy{opacity:0;animation:rise 1.4s forwards;border:1px solid #2c3a42;background:rgba(159,180,194,.05);padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.sammy .who{font-family:var(--display);font-size:clamp(28px,7vw,38px);color:var(--pale);text-shadow:0 0 14px rgba(159,180,194,.45);animation:fade 3s infinite}
+.sammy p{margin:0;font-family:var(--deva);font-size:16px;color:var(--pale)}
+@keyframes fade{0%,100%{opacity:1}50%{opacity:.45}}
+@keyframes rise{to{opacity:1;transform:none}}
+.verdict{font-family:var(--deva);font-size:17px;color:var(--bone);opacity:0;animation:rise 1s forwards;margin:0}
+footer{font-family:var(--deva);font-size:14px;color:var(--dim)}
+.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:none}25%{transform:translate(-4px,2px)}50%{transform:translate(4px,-2px)}75%{transform:translate(-2px,-1px)}}
+@media (prefers-reduced-motion:reduce){h1,.names li,.verdict,.sammy,.sammy .who{animation:none;opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<canvas id="grain"></canvas>
+<main id="main">
+  <div class="eyebrow">L1</div>
+
+  <div class="head">
+    <h1>Bunty <span>Knows</span></h1>
+    <p class="hindi-title">बंटी सब जानता है</p>
+  </div>
+
+  <p class="glyphs">𑀩𑀁𑀝𑀺 𑀚𑀸𑀦𑀸𑀢𑀺 · 𑀮 𑁧</p>
+
+  <p class="lore">L3 तोड़ दिया। <b>बंटी</b> अब L1 में है।<br>उसे सबके नाम पता हैं।</p>
+
+  <section class="clock" aria-label="Time since Bunty passed">
+        <div class="units">
+      <div class="u"><b id="cy">00</b><span>𑀯𑀲</span></div>
+      <div class="u"><b id="cm">00</b><span>𑀫𑀸</span></div>
+      <div class="u"><b id="cd">00</b><span>𑀤𑀺</span></div>
+      <div class="u"><b id="ch">00</b><span>𑀖𑀝𑀺</span></div>
+      <div class="u"><b id="cn">00</b><span>𑀓𑀮</span></div>
+      <div class="u"><b id="cs">00</b><span>𑀔𑀦</span></div>
+    </div>
+  </section>
+
+  <form class="ask" id="ask">
+    <label for="room">कमरा नंबर</label>
+    <div class="row">
+      <input id="room" inputmode="numeric" autocomplete="off" maxlength="8">
+      <button type="submit">पूछो</button>
+    </div>
+  </form>
+
+  <section id="answer" aria-live="polite">
+    <p class="whisper">…</p>
+  </section>
+
+  <footer class="glyphs small">𑀅𑀢𑀺 𑀅𑀁𑀥𑀓𑀸𑀭𑀁</footer>
+</main>
+
+<script>
+/* ===== HOSTEL LIST (L1) ===== */
+const ROOMS = {
+  "101": ["Rishabh Pachoriya", "Parmar Ruturajsinh Rohitsinh", "Ojes Dev N"],
+  "102": ["Chaturth R", "Pilli Hemanth", "Ashish Jangra"],
+  "105": ["Rohan Vig", "Sanket Rajendra Pagadpalliwar", "Shashwat Tripathi"],
+  "106": ["Mullamudi Gowtham Rohith", "Chanpreet Singh"],
+  "107": ["Killani Sree Venkata Surya Rao", "Krrish Agarwal", "Hrishikesh Kumar"],
+  "108": ["Piyush Gangwar", "Saarthak Saran", "Pranjal Prabhat Makhnan"],
+  "109": ["Mayank Choudhary", "Rajkumar Sabavat", "T Mohit Kumar"],
+  "110": ["Mugesh R", "Arghyadip Poddar", "Aditya Raj"],
+  "111": ["Prathamesh Sanjay Dongre", "Rinshad K R", "Shivam Engle"],
+  "112": ["Gregory Xalxo", "Priyanshu Mittal", "Hrithik Sah"],
+  "113": ["Aayush Mall", "Bhavya Nahar", "Kapil Kumar"],
+  "114": ["Harisankar S", "Syam Sivadas", "Shikhar Mahipal"],
+  "115": ["Anubhav A Kumar", "Atraya Kumar Bajpai", "V Mohammed Zidan Sameer"],
+  "116": ["Parmar Kunal Dhirajkumar", "Vivaan Batla", "Aditya R P"],
+  "117": ["Shrey", "Anant Sanjay Galge", "Arpit Kumar Lohani"],
+  "118": ["Shubham Gupta", "Deepanshu Saatoria", "Chiranjeet Mishra"],
+  "119": ["Kunal Tyagi", "Sripathi Sri Ram", "Rohit M Kumar"],
+  "120": ["Kari Jaswanth", "Nischay Raj", "Arnit Jain"],
+  "121": ["Varun Kant Kushwaha", "Vatsal Parag Shah", "Kenoy Jayeshkumar Panchiwala"],
+  "122": ["Shikhar Tripathi", "Anuj Kumar", "Haseen Mashhood K N"]
+};
+/* Rooms whose people shifted in later (not on the official list) → marked TARGET */
+const SHIFTED = ["103", "104"];
+/* Rooms where Sammy also lurks */
+const SAMMY = ["103", "111"];
+/* ============================ */
+
+const intros = ["रुको…", "…", "वो आ रहा है…", "सुन रहा है…"];
+const verdicts = ["दरवाज़ा बंद रखना।", "3:07 बजे।", "वो देख रहा है।", "आज रात।"];
+const targetLines = ["नए हो? पता है उसे।"];
+const empty = ["कोई नहीं।", "ख़ाली है।", "…"];
+const pick = a => a[Math.floor(Math.random()*a.length)];
+const el = (tag, cls, text) => { const e=document.createElement(tag); if(cls) e.className=cls; if(text!=null) e.textContent=text; return e; };
+
+const form = document.getElementById("ask"), input = document.getElementById("room"),
+      out = document.getElementById("answer"), main = document.getElementById("main");
+
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  const q = input.value.replace(/^\s*L\s*1\s*[-\s]*/i, "").replace(/\D/g, "");
+  if(!q){ input.focus(); return; }
+  main.classList.remove("shake"); void main.offsetWidth; main.classList.add("shake");
+  out.innerHTML = "";
+  out.appendChild(el("p","whisper",pick(intros)));
+  setTimeout(() => {
+    const names = ROOMS[q];
+    const shifted = SHIFTED.includes(q);
+    let delay = 0;
+    if(names && names.length){
+      const ul = el("ul","names");
+      names.forEach(n => { const li=el("li",null,n); li.style.animationDelay=delay+"s"; delay+=0.9; ul.appendChild(li); });
+      out.appendChild(ul);
+    } else if(shifted){
+      const ul = el("ul","names");
+      const li = el("li","target"); li.style.animationDelay="0s";
+      li.append("???", el("span","stamp","TARGET"));
+      ul.appendChild(li); out.appendChild(ul); delay = 0.9;
+      const t = el("p","verdict",pick(targetLines)); t.style.animationDelay=(delay+.2)+"s"; out.appendChild(t); delay += 0.8;
+    } else {
+      if(!SAMMY.includes(q)) out.appendChild(el("p","whisper",pick(empty)));
+    }
+    if(SAMMY.includes(q)){
+      let ul = out.querySelector(".names"); if(!ul){ ul = el("ul","names"); out.appendChild(ul); }
+      const li = el("li",null,"Sammy"); li.style.animationDelay=(delay+.6)+"s"; delay += 1.5; ul.appendChild(li);
+    }
+    if(names && names.length){
+      const v = el("p","verdict",pick(verdicts)); v.style.animationDelay=(delay+.3)+"s"; out.appendChild(v);
+    }
+  }, 1400);
+});
+
+/* live counter since 23 Jan 2009, 00:00 IST */
+const START = new Date("2009-01-23T00:00:00+05:30");
+const pad = n => String(n).padStart(2,"0");
+const ids = ["cy","cm","cd","ch","cn","cs"].map(i=>document.getElementById(i));
+function tick(){
+  const now = new Date();
+  let y = now.getFullYear()-START.getFullYear(), m = now.getMonth()-START.getMonth();
+  let anchor = new Date(START); anchor.setFullYear(START.getFullYear()+y, START.getMonth()+m);
+  if(anchor > now){ m--; anchor = new Date(START); anchor.setFullYear(START.getFullYear()+y, START.getMonth()+m); }
+  while(m<0){ m+=12; y--; }
+  let rem = Math.floor((now-anchor)/1000);
+  const d = Math.floor(rem/86400); rem%=86400;
+  const h = Math.floor(rem/3600); rem%=3600;
+  const mi = Math.floor(rem/60), s = rem%60;
+  [y,m,d,h,mi,s].forEach((v,i)=>ids[i].textContent=pad(v));
+}
+tick(); setInterval(tick,1000);
+
+/* film grain */
+const c = document.getElementById("grain"), x = c.getContext("2d");
+function size(){ c.width = innerWidth/2; c.height = innerHeight/2; }
+size(); addEventListener("resize", size);
+const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+function noise(){
+  const d = x.createImageData(c.width, c.height), b = d.data;
+  for(let i=0;i<b.length;i+=4){ const v=Math.random()*255; b[i]=b[i+1]=b[i+2]=v; b[i+3]=255; }
+  x.putImageData(d,0,0);
+  if(!still) setTimeout(()=>requestAnimationFrame(noise), 80);
+}
+noise();
+</script>
+</body>
+</html>
